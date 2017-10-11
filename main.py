@@ -54,7 +54,7 @@ print ("Listening ...")
 # Keep the program running.
 while 1:
     now = datetime.datetime.utcnow()
-    if now.weekday() == 2 and now.hour == 5:
+    if now.weekday() == 2 and now.hour => 5:
         if not sent:
             remove = []
             for group in groups:
@@ -68,5 +68,5 @@ while 1:
     else:
         sent = False
 
-    time.sleep(59)
+    time.sleep(60)
    
