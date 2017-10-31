@@ -35,6 +35,14 @@ def handle(msg):
     content_type, chat_type, chat_id = telepot.glance(msg)
     print(content_type, chat_type, chat_id)
 
+    if content_type == 'text':
+        if msg['text'].lower()[:len("/whatday")] == "/whatday":
+            now = datetime.datetime.utcnow()
+            response = "It is not Wednesday, my dude. 🐸"
+            if now.weekday() == 2:
+                response = "It is Wednesday, my dude. 🐸"
+            bot.sendMessage(chat_id, response, reply_to_message_id=msg['message_id'])
+
     if content_type == "new_chat_member":
         registerNewGroup(chat_id)
     elif content_type == "left_chat_member":
